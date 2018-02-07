@@ -14,7 +14,7 @@ DEB_DIST ?= stretch
 DEB_MIRROR_URL ?= http://deb.debian.org/debian
 DEB_SECURITY_MIRROR_URL ?= http://security.debian.org
 DEB_COMPONENTS ?= main
-DEB_PACKAGES ?= ansible localepurge locales openssh-client
+DEB_PACKAGES ?= ansible localepurge locales openssh-client sshpass
 
 DOCKER_USER ?= admin
 DOCKER_USER_UID ?= 1337

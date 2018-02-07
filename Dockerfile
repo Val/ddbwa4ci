@@ -19,7 +19,7 @@ ARG DOCKER_USER_GID=8888
 ARG DEB_MIRROR_URL=http://deb.debian.org/debian
 ARG DEB_SECURITY_MIRROR_URL=http://security.debian.org
 ARG DEB_COMPONENTS="main"
-ARG DEB_PACKAGES="ansible localepurge locales openssh-client"
+ARG DEB_PACKAGES="ansible localepurge locales openssh-client sshpass"
 
 # Tell debconf to run in non-interactive mode
 ENV DEBIAN_FRONTEND noninteractive
