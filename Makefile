@@ -102,6 +102,6 @@ pull: ## Run 'docker pull' with image
 push: ## Run 'docker push' with image
 	docker push $(DOCKER_BUILD_TAG)
 
-test: ## Run 'ansible -m setup' inside container
+test: build ## Run 'ansible -m setup' inside container
 	$(DOCKER_RUN_PREFIX) $(DOCKER_BUILD_TAG) ansible -i localhost, -m setup \
     -e ansible_connection=local localhost
