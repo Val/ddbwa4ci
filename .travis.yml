@@ -1,0 +1,21 @@
+env:
+  global:
+  - secure: R9ZaW95h9SxjGDFq0nl/xXXB7LAJFXHJN8+FqPocDvXfYtVAfF0HPZ9He6QGNUMHjbmk91fIBnciFFaRFUlfudQ4PYd1UOTLpwgqI0cK1iMMfD+4YRLby2WwzZDw4XkSzgljvlzqVTKzRBM2giwUdMuipYs2+rK9cKBIAD29JpafVCLE18elIbzn4yvlO/pZ26NO5sh2kagfIwjlU50T1nznjn1TBL4+81G07IrzVtZI2l5cg3bpGtgR451mOMou6Dvng27dVB/jd3q0zDlZHiqDOpDSJec8sVHvMGJBMPLMbZytinA4e0SK9QfgR2AYp39f6RYk8JsBxPmjL8xZoMeYxr+BACr4U3NHnkSNM+Sm2UkFjLDRaZXeMqw6Tewor0W05/LJk7hUa5QD4AD0SIknAAn/FS/Ev496xHtnzHDktx+tKdXZG0QwFdp2jamLprFFcwvN7OJZCpTsq8R+JmXtfQI+uFYoZfc3M2eYg+KpaV+GeqCQq0MpU+WjwUYjyiItUKyn/KHCwH6wAASnTBlEuwgNzTKC3Of0df2iJ/7YjHjWJxPbQA3BzsAfcU34KmnrlVwEY/P3GCanRyg93QUiyAZQeCNeB5SWrsTOSKPcUgnkteWV/ydZv4RUWny212Ytxypr2Vez30cZrNwxai1Kw5B74uh3kw9b4Eg7BT8=
+  - DOCKER_USERNAME=vallar
+  - DOCKER_USER=admin
+addons:
+  apt:
+    packages:
+    - docker-ce
+    - make
+language: generic
+sudo: required
+services:
+- docker
+before_install:
+- docker --version
+- make showenv
+script:
+- make test
+after_success:
+- if [ "$TRAVIS_BRANCH" == 'master' ]; then make login; make push; fi
